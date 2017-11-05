@@ -60,6 +60,52 @@ const char * T_D_R          = "\u2563";
 const char * PLUS_S         = "\u253C";
 const char * PLUS_D         = "\u256C";
 
+const char * CROSS_S        = "\u2573";
+
+const char * BLOCK          = "\u2588";
+
+void square_single(int);
+void square_single_curved(int);
+void square_double(int);
+void grid_single(int);
+void grid_double(int);
+void checker_board(int);
+
+int main()
+{
+    int s = 5;
+    std::cout << "CONSOLE SHAPES" << std::endl;
+    
+    std::cout << std::endl << std::endl << "SQUARE" << std::endl 
+                << "SINGLE LINE" << std::endl 
+                << "SIDE = " << s << " units" << std::endl;
+    square_single(s);
+    
+    std::cout << std::endl << std::endl << "SQUARE" << std::endl 
+                << "SINGLE LINE CURVED CORNERS" << std::endl 
+                << "SIDE = " << s << " units" << std::endl;
+    square_single_curved(s);
+
+    std::cout << std::endl << std::endl << "SQUARE" << std::endl 
+                << "DOUBLE LINE" << std::endl 
+                << "SIDE = " << s << " units" << std::endl;
+    square_double(s);
+
+    std::cout << std::endl << std::endl << "GRID" << std::endl 
+                << "SINGLE LINE" << std::endl 
+                << "SIDE = " << s << " units" << std::endl;
+    grid_single(s);
+
+    std::cout << std::endl << std::endl << "GRID" << std::endl 
+                << "DOUBLE LINE" << std::endl 
+                << "SIDE = " << s << " units" << std::endl;
+    grid_double(s);
+
+    std::cout << std::endl << std::endl << "CHECKER BOARD" << std::endl 
+                << "SIDE = " << s << " units" << std::endl << std::endl;
+    checker_board(s);
+}
+
 void square_single(int side)
 {
     std::cout << CORNER_S_T_L;
@@ -238,28 +284,17 @@ void grid_double(int side)
     std::cout << CORNER_D_B_R;
 }
 
-int main()
+void checker_board(int side)
 {
-    int s = 5;
-    std::cout << "CONSOLE SHAPES" << std::endl;
-    std::cout << std::endl << std::endl;
-    std::cout << "SQUARE" << std::endl << "SINGLE LINE" << std::endl << "SIDE = " << s << " units";
-    std::cout << std::endl;
-    square_single(s);
-    std::cout << std::endl << std::endl;
-    std::cout << "SQUARE" << std::endl << "SINGLE LINE CURVED CORNERS" << std::endl << "SIDE = " << s << " units";
-    std::cout << std::endl;
-    square_single_curved(s);
-    std::cout << std::endl << std::endl;
-    std::cout << "SQUARE" << std::endl << "DOUBLE LINE" << std::endl << "SIDE = " << s << " units";
-    std::cout << std::endl;
-    square_double(s);
-    std::cout << std::endl << std::endl;
-    std::cout << "GRID" << std::endl << "SINGLE LINE" << std::endl << "SIDE = " << s << " units";
-    std::cout << std::endl;
-    grid_single(s);
-    std::cout << std::endl << std::endl;
-    std::cout << "GRID" << std::endl << "DOUBLE LINE" << std::endl << "SIDE = " << s << " units";
-    std::cout << std::endl;
-    grid_double(s);
+    for (int i = 0; i < side; i++)
+    {
+        for (int j = 0; j < side; j++)
+        {
+            if ((i + j) % 2 == 0)
+                std::cout << BLOCK << BLOCK;
+            else
+                std::cout << "  ";
+        }
+        std::cout << std::endl;
+    }
 }
