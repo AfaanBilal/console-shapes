@@ -10,15 +10,17 @@
 /*
 
 REFERENCE: 
-    SHAPE_(S|D)_(T|B|H|V)_(L|R)
-        S -> Single
-        D -> Double
-        T -> Top
-        B -> Bottom
-        H -> Horizontal
-        V -> Vertical
-        L -> Left
-        R -> Right
+    SHAPE_(S|D)_(T|B|H|V|I|D)_(L|R)
+        1.  S -> Single
+            D -> Double
+        2.  T -> Top
+            B -> Bottom
+            H -> Horizontal
+            V -> Vertical
+            I -> Inclining
+            D -> Declining
+        3.  L -> Left
+            R -> Right
 
 */
 
@@ -39,6 +41,9 @@ const char * ARC_S_B_R      = "\u256F";
 
 const char * LINE_S_H       = "\u2500";
 const char * LINE_S_V       = "\u2502";
+const char * LINE_S_I       = "\u2571";
+const char * LINE_S_D       = "\u2572";
+
 const char * LINE_D_H       = "\u2550";
 const char * LINE_D_V       = "\u2551";
 
