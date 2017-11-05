@@ -6,6 +6,7 @@
 */
 
 #include <iostream>
+#include <windows.h>
 
 /*
 
@@ -70,6 +71,8 @@ void square_double(int);
 void grid_single(int);
 void grid_double(int);
 void checker_board(int);
+void progress(int);
+void spinner(int);
 
 int main()
 {
@@ -104,6 +107,15 @@ int main()
     std::cout << std::endl << std::endl << "CHECKER BOARD" << std::endl 
                 << "SIDE = " << s << " units" << std::endl << std::endl;
     checker_board(s);
+
+    s = 10;
+    std::cout << std::endl << std::endl << std::endl << "PROGRESS" << std::endl 
+                << "SIDE = " << s << " units" << std::endl << std::endl;
+    progress(s);
+
+    std::cout << std::endl << std::endl << std::endl << "SPINNER" << std::endl 
+                << s << " times" << std::endl << std::endl;
+    spinner(s);
 }
 
 void square_single(int side)
@@ -296,5 +308,32 @@ void checker_board(int side)
                 std::cout << "  ";
         }
         std::cout << std::endl;
+    }
+}
+
+void progress(int side)
+{
+    std::cout << LINE_S_V << std::flush;
+    for (int i = 0; i < side; i++)
+    {
+        Sleep(500);
+        std::cout << BLOCK << std::flush;
+    }
+    std::cout << LINE_S_V << std::flush;
+}
+
+void spinner(int times)
+{
+    std::cout << "    " << std::flush;
+    for (int i = 0; i < times; i++)
+    {
+        std::cout << "\b\b\b" << LINE_S_H << "  " << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b" << LINE_S_D << "  " << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b" << LINE_S_V << "  " << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b" << LINE_S_I << "  " << std::flush;
+        Sleep(100);
     }
 }
