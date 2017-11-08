@@ -74,47 +74,63 @@ void checker_board(int);
 void progress(int);
 void spinner(int);
 
+/*
+    Colors
+*/
+const char * COLOR_WHITE  = "\033[0m";  // white (normal)
+const char * COLOR_RED    = "\033[31m"; // red
+const char * COLOR_GREEN  = "\033[32m"; // green
+const char * COLOR_ORANGE = "\033[33m"; // orange
+const char * COLOR_BLUE   = "\033[34m"; // blue
+const char * COLOR_PURPLE = "\033[35m"; // purple
+const char * COLOR_CYAN   = "\033[36m"; // cyan
+const char * COLOR_GREY   = "\033[37m"; // gray
+const char * COLOR_TAN    = "\033[93m"; // tan
+
+void colored_text(const char *, const char *);
+void print_title(const char *, const char *);
+
+int s = 5;
+
 int main()
 {
-    int s = 5;
-    std::cout << "CONSOLE SHAPES" << std::endl;
+    std::cout << "CONSOLE SHAPES AND COLORS" << std::endl;
+    std::cout << "https://github.com/AfaanBilal/console-shapes" << std::endl;
+
+    std::cout << std::endl << "COLORED TEXT: ";
     
-    std::cout << std::endl << std::endl << "SQUARE" << std::endl 
-                << "SINGLE LINE" << std::endl 
-                << "SIDE = " << s << " units" << std::endl;
+    colored_text(COLOR_RED, "RED ");
+    colored_text(COLOR_GREEN, "GREEN ");
+    colored_text(COLOR_ORANGE, "ORANGE ");
+    colored_text(COLOR_BLUE, "BLUE ");
+    colored_text(COLOR_PURPLE, "PURPLE ");
+    colored_text(COLOR_CYAN, "CYAN ");
+    colored_text(COLOR_GREY, "GREY ");
+    colored_text(COLOR_TAN, "TAN ");
+    
+    print_title("SQUARE", "SINGLE LINE");
     square_single(s);
     
-    std::cout << std::endl << std::endl << "SQUARE" << std::endl 
-                << "SINGLE LINE CURVED CORNERS" << std::endl 
-                << "SIDE = " << s << " units" << std::endl;
+    print_title("SQUARE", "SINGLE LINE CURVED CORNERS");
     square_single_curved(s);
 
-    std::cout << std::endl << std::endl << "SQUARE" << std::endl 
-                << "DOUBLE LINE" << std::endl 
-                << "SIDE = " << s << " units" << std::endl;
+    print_title("SQUARE", "DOUBLE LINE");
     square_double(s);
 
-    std::cout << std::endl << std::endl << "GRID" << std::endl 
-                << "SINGLE LINE" << std::endl 
-                << "SIDE = " << s << " units" << std::endl;
+    print_title("GRID", "SINGLE LINE");
     grid_single(s);
 
-    std::cout << std::endl << std::endl << "GRID" << std::endl 
-                << "DOUBLE LINE" << std::endl 
-                << "SIDE = " << s << " units" << std::endl;
+    print_title("GRID", "DOUBLE LINE");
     grid_double(s);
 
-    std::cout << std::endl << std::endl << "CHECKER BOARD" << std::endl 
-                << "SIDE = " << s << " units" << std::endl << std::endl;
+    print_title("CHECKER BOARD", "");
     checker_board(s);
 
     s = 10;
-    std::cout << std::endl << std::endl << std::endl << "PROGRESS" << std::endl 
-                << "SIDE = " << s << " units" << std::endl << std::endl;
+    print_title("PROGRESS", "");
     progress(s);
 
-    std::cout << std::endl << std::endl << std::endl << "SPINNER" << std::endl 
-                << s << " times" << std::endl << std::endl;
+    print_title("SPINNER", "");
     spinner(s);
 }
 
@@ -336,4 +352,21 @@ void spinner(int times)
         std::cout << "\b\b\b" << LINE_S_I << "  " << std::flush;
         Sleep(100);
     }
+}
+
+void colored_text(const char * color, const char * text)
+{
+    std::cout << color << text << COLOR_WHITE;
+}
+
+void print_title(const char * line1, const char * line2)
+{
+    std::cout << std::endl << std::endl;
+    colored_text(COLOR_ORANGE, line1);
+    std::cout << std::endl;
+    colored_text(COLOR_GREEN, line2);
+    std::cout << std::endl;
+    colored_text(COLOR_PURPLE, "LENGTH = ");
+    std::cout << s;
+    std::cout << std::endl << std::endl;
 }
