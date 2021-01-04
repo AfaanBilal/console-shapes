@@ -1,7 +1,7 @@
 Console Shapes
 ==============
 
-Author: **[Afaan Bilal](https://afaan.me)**  
+Author: **[Afaan Bilal](https://afaan.dev)**  
 
 ## Introduction
 **Console Shapes** is a sample program in C++ to draw simple shapes on a console.
